@@ -15,6 +15,10 @@ function App() {
   const [totalPrice, setTotalPrice] = useState(0);
 
   useEffect(() => {
+    document.title = "Redux With React";
+  }, []);
+
+  useEffect(() => {
     const newSelectedProducts = products.filter((product) => product.checked);
 
     setSelectedProducts(newSelectedProducts);

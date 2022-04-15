@@ -1,14 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { Provider } from "react-redux";
+import { PersistGate } from "redux-persist/integration/react";
+
 import "./index.css";
-import store from "./store/store";
+import { store, persistedStore } from "./store/store";
 import HomeView from "./views/Home.view";
 
 ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
-      <HomeView />
+      <PersistGate loading={null} persistor={persistedStore}>
+        <HomeView />
+      </PersistGate>
     </Provider>
   </React.StrictMode>,
   document.getElementById("root")
